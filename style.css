@@ -21,6 +21,7 @@ body{
     align-items: center;
     width: 100%;
     padding: 40px 100px;
+    position: relative;
     justify-content: space-between; 
 }
 
@@ -129,7 +130,6 @@ body{
    flex-wrap: wrap;
    gap: 15px;
    width: 100%;
-
 }
 
 .cat-card{
@@ -203,6 +203,11 @@ transform:  translateY(-5px);
 
 .btn-connexion{
     margin-left: 50px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .come{
@@ -217,7 +222,6 @@ transform:  translateY(-5px);
 }
 
 .call{
-  margin-right: 10px;
   background-color: goldenrod;
   border: none;
   color: white;
@@ -235,6 +239,7 @@ padding-right: 10px;
   width: 25px;
   height: 25px;
   border: none;
+  z-index: 1000;
   position: relative;
   background: transparent;
   display: none;
@@ -247,6 +252,8 @@ padding-right: 10px;
   border-radius: 10px;
   height: 3px;
   left: 0;
+  transition: transform 0.3s ease-in-out, 
+  opacity 0.3s ease-in-out;
 }
 
 .L1{
@@ -257,6 +264,19 @@ padding-right: 10px;
   transform: translateY(10px);
 }
 
+.button-Menu.active .L1{
+  transform: translateY(0px) rotate(-135deg);
+}
+
+.button-Menu.active .L2{
+  opacity: 0;
+}
+
+.button-Menu.active .L3{
+  transform: translateY(0px) rotate(135deg);
+
+}
+
 
 /* la patie de l'image qui tourne et le texte */
 .main{
@@ -265,6 +285,7 @@ padding-right: 10px;
   justify-content: space-between;
   padding: 0 120px;
   position: relative;
+  overflow: hidden;
   flex-direction: row-reverse;
 }
 
@@ -342,10 +363,12 @@ padding-right: 10px;
     background-color: white;
     height: auto;
     padding: 20px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .section-swiper{
    position: relative;
 }
@@ -355,11 +378,10 @@ padding-right: 10px;
     padding: 150px 60px 20px 60px;
     margin: 0 60px 35px;
     height: 100%;
-    overflow: hidden;
 }
 
 .card{
-  width: 400px;
+  max-width: 100%;
   background-color: rgb(197, 145, 13);
   position: relative;
   border-radius: 20px;
@@ -500,17 +522,92 @@ color: black;
 
 
 @media (max-width :750px){
-   
+  body.active { 
+    overflow: hidden;
+  }
 .navbar{
     display: flex;
     align-items: center;
     width: 100%;
     padding: 40px 30px;
+    position: relative;
     justify-content: space-between; 
 }
 
 .nav-links{
-display: none;
+  position: fixed;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 40px 20px;
+  width: 100%;
+  gap: 20px;
+  top: 0;
+  background-color: rgb(236, 236, 236);
+  max-height: 100%;
+  z-index: 1000;
+  flex-direction: column;
+  transform: translateX(500px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links.active {
+   transform: translateX(0);
+}
+
+/*  */
+.block-flottante{
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: 0;
+  margin-top: 20px;
+  position: unset;
+  border-radius: 20px;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: unset;
+  background:transparent;
+  transition: transform 0.3s ease-in-out,
+  opacity 0.4s ease-in-out, visibility 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+} 
+
+.jus-block{
+  width: 100%;
+  padding: 5px;
+}
+
+.cat-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background-color: rgb(1, 95, 1);
+  border-radius: 20px;
+  padding: 15px 5px;
+  transition:  transform 0.3s ease-in-out;
+}
+
+/* la partie btn */
+.btn-connexion{
+    margin-left: 0px;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.come{
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
 }
 
 /* la partie des elements du button de navigation */
@@ -556,13 +653,17 @@ display: none;
 /* la partie des elements swiper */
 .block-swiper-element{
     padding: 0px;
+    overflow: hidden;
 }
 
 .swapper{
     max-width: 100%;
+    overflow: hidden;
+    background-color: red;
     padding: 150px 20px 20px 20px;
     margin: 0 20px 10px;
     height: 100%;
+    z-index: 1;
 }
 
 .card-img img{
@@ -575,11 +676,7 @@ display: none;
 /* la partie des boutons prev et next  */
 
 .swapper :where(.swiper-button-next, .swiper-button-prev){
-  background-color: #3333;
-  height: 50px;
-  border-radius: 50%;
   display: none;
-  width: 50px;
 }
 
 .footer{
@@ -644,7 +741,9 @@ display: none;
 /* la partie des elements swiper */
 .block-swiper-element{
     padding: 0px;
+    overflow: hidden;
 }
+
 
 .swapper{
     max-width: 100%;
@@ -663,11 +762,7 @@ display: none;
 /* la partie des boutons prev et next  */
 
 .swapper :where(.swiper-button-next, .swiper-button-prev){
-  background-color: #3333;
-  height: 50px;
-  border-radius: 50%;
   display: none;
-  width: 50px;
 }
 
 .footer{

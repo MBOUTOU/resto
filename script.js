@@ -22,10 +22,11 @@ const swiper = new Swiper('.swapper', {
  breakpoints: {
     0 :{
         slidesPerView : 1,
+        spaceBetween: 40,
     },
-
      700:{
       slidesPerView : 2,
+      spaceBetween: 40,
     },
 
      1024 :{
@@ -53,4 +54,16 @@ SurvoleParant.addEventListener("mouseleave", () =>{
      SurvoleParant.classList.remove("active");
      Blockpopup.classList.remove("active");
    }, 100)
+})
+
+// -------------------------------------
+
+const buttonMenu = document.querySelector(".button-Menu")
+const bodyStyle = document.querySelector("body");
+const Linkstyle = document.querySelector(".nav-links");
+
+buttonMenu.addEventListener("click",() =>{
+  buttonMenu.classList.toggle("active");
+  bodyStyle.classList.toggle("active");
+  Linkstyle.classList.toggle("active");
 })
