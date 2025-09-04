@@ -232,8 +232,8 @@ padding-right: 10px;
 /* la partie des elements du button de navigation */
 
 .button-Menu{
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border: none;
   position: relative;
   background: transparent;
@@ -287,9 +287,18 @@ padding-right: 10px;
    max-width: 450px;
 }
 
+.stars{
+   width: 100%;
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   justify-content: center;
+}
+
+
 .block_texte .stars span img{
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
 }
 
 .block_texte h1{
