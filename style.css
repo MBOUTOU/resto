@@ -541,7 +541,7 @@ color: black;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 40px 15px;
+  padding: 60px 15px;
   width: 100%;
   gap: 20px;
   top: 0;
@@ -559,6 +559,19 @@ color: black;
    transform: translateX(0);
 }
 
+.groy-link{
+  position: relative;
+}
+
+.groy-link::before{
+    content: "";
+    height: 1px;
+    width: 330px;
+    background-color: #3333;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+}
 
 /*  */
 .block-flottante{
@@ -577,8 +590,15 @@ color: black;
   opacity 0.4s ease-in-out, visibility 0.3s ease-in-out;
   display: flex;
   height: auto;
+  overflow: hidden;
+  max-height: 0;
   align-items: center;
   flex-wrap: wrap;
+} 
+
+.block-flottante.active{
+  overflow: hidden;
+  max-height: 100%;
 } 
 
 .jus-block{

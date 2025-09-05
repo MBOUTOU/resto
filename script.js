@@ -37,12 +37,38 @@ const swiper = new Swiper('.swapper', {
 });
 
 
-// -----------------------------------------------------------
+// -------------------------------------
+
+const buttonMenu = document.querySelector(".button-Menu")
+const bodyStyle = document.querySelector("body");
+const Linkstyle = document.querySelector(".nav-links");
+
+buttonMenu.addEventListener("click",() =>{
+  buttonMenu.classList.toggle("active");
+  bodyStyle.classList.toggle("active");
+  Linkstyle.classList.toggle("active");
+})
+// ---------------------------------------------
 
 const SurvoleParant = document.querySelector(".survolElement");
 const Blockpopup = SurvoleParant.querySelector(".block-flottante");
 let timeoutId;
 
+let detecteMedia = window.matchMedia("(hover: none)").matches;
+// if(detecteMedia){
+//   console.log("je suis sur ecran tactile");
+// }else{
+//   console.log("je suis sur grand ecran")
+// }
+if(detecteMedia){
+   SurvoleParant.addEventListener("click", () =>{
+   SurvoleParant.classList.toggle("active")
+   Blockpopup.classList.toggle("active");
+})
+}
+else{
+  
+// -----------------------------------------------------------
 SurvoleParant.addEventListener("mouseenter", () =>{
    clearTimeout(timeoutId);
    SurvoleParant.classList.add("active");
@@ -55,15 +81,10 @@ SurvoleParant.addEventListener("mouseleave", () =>{
      Blockpopup.classList.remove("active");
    }, 100)
 })
+}
 
-// -------------------------------------
 
-const buttonMenu = document.querySelector(".button-Menu")
-const bodyStyle = document.querySelector("body");
-const Linkstyle = document.querySelector(".nav-links");
 
-buttonMenu.addEventListener("click",() =>{
-  buttonMenu.classList.toggle("active");
-  bodyStyle.classList.toggle("active");
-  Linkstyle.classList.toggle("active");
-})
+
+
+
